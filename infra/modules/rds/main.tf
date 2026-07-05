@@ -59,10 +59,10 @@ resource "aws_db_instance" "this" {
   vpc_security_group_ids = [aws_security_group.rds.id]
   publicly_accessible    = false
 
-  backup_retention_period = var.backup_retention_period
-  deletion_protection     = var.deletion_protection
-  multi_az                = var.multi_az
-  skip_final_snapshot     = var.env == "prod" ? false : true
+  backup_retention_period   = var.backup_retention_period
+  deletion_protection       = var.deletion_protection
+  multi_az                  = var.multi_az
+  skip_final_snapshot       = var.env == "prod" ? false : true
   final_snapshot_identifier = var.env == "prod" ? "${local.name}-final-snapshot" : null
 
   tags = {
